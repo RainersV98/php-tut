@@ -5,13 +5,13 @@ body {
   font-style: normal;
 }
 
-a {
+.main-menu a {
   color: inherit;
   text-decoration: none;
   transition: all 0.2s;
 }
 
-a:hover {
+.main-menu a:hover {
   background-color: #343e3d;
 }
 

@@ -1,21 +1,36 @@
 <?php
     include_once(__DIR__ . '/partials/header.php');
     var_dump($_POST);
-    $item = "pizza";
-    $price = 5.99;
-    $quantity = $_POST["quantity"];
-    $total = null;
-    $total = $quantity * $price;
+    // $number_x = $_POST['number_x'];
+    // $number_y = $_POST['number_y'];
+    // $power_number = pow($number_x, $number_y);
+
+    $radius = $_POST['radius'];
+    $circumference = null;
+    $area = null;
+    $volume = null;
+    
+    $circumference = 2 * pi() * $radius;
+    $circumference = round($circumference, 2);
+    
+    $area = pi() * pow($radius, 2);
+    $area = round($area, 2);
+    
+    $volume = (4/3) * pi() * pow($radius, 3);
+    $volume = round($volume, 2);
+
 ?>
 <body>
     <div class="header-container">
         <header class="container header-items">
             <div class="logo-container">
-                <img 
-                    src = "/content/images/mansmezslogo.png"
-                    alt = "Mans mežš miskastē logo"
-                    width = "200"
-                >
+                <a href="/">
+                    <img 
+                        src = "/content/images/mansmezslogo.png"
+                        alt = "Mans mežš miskastē logo"
+                        width = "200"
+                    >
+                </a>
             </div>
             <div class="main-menu-container">
                     <ul class="main-menu">
@@ -50,13 +65,19 @@
     </div>
     <main>
         <div class="container">
-            <button>Order pizza</button>
+            <!-- <button>Order pizza</button> -->
             <?php include(__DIR__ . '/partials/form.php'); ?>
             <pre><?php 
-                    echo 'wassup!';
-                    
-                    echo "You have ordered {$quantity} x {$item}/s\n";
-                    echo "Your total is \${$total}";
+            if(!empty($_POST)) {
+
+                // echo "wassup! \n";
+                
+                // echo "{$number_x} to the power of {$number_y} is {$power_number}";
+
+                echo "Circumference = {$circumference}cm\n";
+                echo "Area = {$area}cm\n";
+                echo "Volume = {$volume}cm\n";
+            }
                 ?>
             </pre>
         </div>
